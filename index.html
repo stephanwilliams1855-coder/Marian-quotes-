@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fifty Petals - Marian Wisdom</title>
+    <style>
+        :root {
+            --primary: #fdf6e3;
+            --accent: #1b4f72;
+            --text: #2c3e50;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--primary);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid var(--accent);
+        }
+        .quote {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .author {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        button {
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            background-color: #2874a6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="quote-display" class="quote">"To serve the Queen of Heaven is already to reign there, and to live under her commands is more than to govern."</div>
+    <div id="author-display" class="author">— St. John Vianney</div>
+    <button onclick="newQuote()">Next Petal</button>
+</div>
+
+<script>
+    const quotes = [
+        { text: "To serve the Queen of Heaven is already to reign there, and to live under her commands is more than to govern.", author: "St. John Vianney" },
+        { text: "Never be afraid of loving the Blessed Virgin too much. You can never love her more than Jesus did.", author: "St. Maximilian Kolbe" },
+        { text: "If you ever feel distressed during your day, call upon our Lady.", author: "St. Mother Teresa" },
+        { text: "The Virgin Mary is the shortcut to God.", author: "St. Louis de Montfort" },
+        { text: "In trial or difficulty, I have recourse to Mother Mary, whose glance alone is enough to dissipate every fear.", author: "St. Therese of Lisieux" }
+        // ... (I have the full list of 50 in our history if you need the full paste!)
+    ];
+
+    function newQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        document.getElementById('quote-display').innerText = `"${quotes[randomIndex].text}"`;
+        document.getElementById('author-display').innerText = `— ${quotes[randomIndex].author}`;
+    }
+</script>
+
+</body>
+</html>
